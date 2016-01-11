@@ -10,6 +10,7 @@ BEGIN {
 
 use Test::More tests => 31;
 use DateTime::Tiny;
+use version 0.77;
 
 
 
@@ -76,7 +77,10 @@ SKIP: {
 	# Expand to a DateTime
 	my $dt = $date->DateTime;
 	isa_ok( $dt, 'DateTime' );
-	is( $dt->locale->id,      'C',        '->locate ok'   );
+	# DateTime::Locale version 1.00 changes "C" to "en-US-POSIX".
+	my $expected = version->parse($DateTime::Locale::VERSION) < version->parse("1.00")
+		? "C" : "en-US-POSIX";
+	is( $dt->locale->id,      $expected,  '->locale ok'   );
 	is( $dt->time_zone->name, 'floating', '->timezone ok' );
 
 	# Compare accessor results
