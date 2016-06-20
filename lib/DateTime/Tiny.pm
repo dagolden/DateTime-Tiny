@@ -153,7 +153,7 @@ sub second {
 =method ymdhms
 
 The C<ymdhms> method returns the most common and accurate stringified date
-format, which returns in the form "2006-04-12".
+format, which returns in the form "2006-04-12T23:59:59".
 
 =cut
 
@@ -181,7 +181,9 @@ sub ymdhms {
 
 The C<from_string> method creates a new B<DateTime::Tiny> object from a string.
 
-The string is expected to be an ISO 8601 time, with separators.
+The string is expected to be an ISO 8601 combined date and time, with
+separators (including the 'T' separator) and no time zone designator.  No
+other ISO 8601 formats are supported.
 
   my $almost_midnight = DateTime::Tiny->from_string( '2006-12-20T23:59:59' );
 
@@ -212,10 +214,10 @@ sub from_string {
 =method as_string
 
 The C<as_string> method converts the date to the default string, which
-at present is the same as that returned by the C<ymd> method above.
+at present is the same as that returned by the C<ymdhms> method above.
 
-This string matches the ISO 8601 standard for the encoding of a date as
-a string.
+This string conforms to the ISO 8601 standard for the encoding of a combined
+date and time as a string, without time-zone designator.
 
 =cut
 
@@ -231,7 +233,7 @@ The C<DateTime> method is used to create a L<DateTime> object
 that is equivalent to the B<DateTime::Tiny> object, for use in
 conversions and calculations.
 
-As mentioned earlier, the object will be set to the 'C' locate,
+As mentioned earlier, the object will be set to the 'C' locale,
 and the 'floating' time zone.
 
 If installed, the L<DateTime> module will be loaded automatically.
@@ -341,14 +343,14 @@ To make up for this, B<if> you have L<DateTime> installed, any
 B<DateTime::Tiny> module can be inflated into the equivalent L<DateTime>
 as needing, loading L<DateTime> on the fly if necessary.
 
-This is somewhat similar to DateTime::LazyInit, but unlike that module
-B<DateTime::Tiny> is not modifiable.
+This is somewhat similar to L<DateTime::LazyInit>, but unlike that module
+B<DateTime::Tiny> objects are not modifiable.
 
 For the purposes of date/time logic, all B<DateTime::Tiny> objects exist
 in the "C" locale, and the "floating" time zone. This may be improved in
 the future if a suitably tiny way of handling timezones is found.
 
-When converting up to full L<DateTime> objects, these local and time
+When converting up to full L<DateTime> objects, these locale and time
 zone settings will be applied (although an ability is provided to
 override this).
 
