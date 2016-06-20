@@ -1,0 +1,16 @@
+Changes for Perl extension DateTime-Tiny
+
+{{ NEXT }}
+
+1.04 Mon 20 April 2009
+        - Fix 02_main.t fail if DateTime is not available (Alexandr Ciornii)
+        - Tweaks to POD, tests and Makefile.PL
+
+1.03 Sun 29 Mar 2009
+        - Time to stop shirking and do an actual public release
+
+0.02 Thu  1 Nov 2007
+        - Moving from Module::Install to EU:MM
+
+0.01 Wed 24 Jan 2007
+        - original version
