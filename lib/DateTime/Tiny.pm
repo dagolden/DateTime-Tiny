@@ -28,13 +28,13 @@ use overload 'ne'   => sub { "$_[0]" ne "$_[1]" };
 
 The C<new> constructor creates a new B<DateTime::Tiny> object.
 
-It takes six named params. C<day> should be the day of the month (1-31),
+It takes six named parameters. C<day> should be the day of the month (1-31),
 C<month> should be the month of the year (1-12), C<year> as a 4 digit year.
 C<hour> should be the hour of the day (0-23), C<minute> should be the
 minute of the hour (0-59) and C<second> should be the second of the
 minute (0-59).
 
-These are the only params accepted.
+These are the only parameters accepted.
 
 Returns a new B<DateTime::Tiny> object.
 
@@ -181,7 +181,7 @@ sub ymdhms {
 
 The C<from_string> method creates a new B<DateTime::Tiny> object from a string.
 
-The string is expected to be an ISO 8601 time, with seperators.
+The string is expected to be an ISO 8601 time, with separators.
 
   my $almost_midnight = DateTime::Tiny->from_string( '2006-12-20T23:59:59' );
 
@@ -229,7 +229,7 @@ sub as_string {
 
 The C<DateTime> method is used to create a L<DateTime> object
 that is equivalent to the B<DateTime::Tiny> object, for use in
-comversions and caluculations.
+conversions and calculations.
 
 As mentioned earlier, the object will be set to the 'C' locate,
 and the 'floating' time zone.
@@ -339,7 +339,7 @@ the usefulness greatly.
 
 To make up for this, B<if> you have L<DateTime> installed, any
 B<DateTime::Tiny> module can be inflated into the equivalent L<DateTime>
-as needing, loading L<DateTime> on the fly if necesary.
+as needing, loading L<DateTime> on the fly if necessary.
 
 This is somewhat similar to DateTime::LazyInit, but unlike that module
 B<DateTime::Tiny> is not modifiable.
