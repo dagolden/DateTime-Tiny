@@ -10,7 +10,6 @@ BEGIN {
 
 use Test::More tests => 31;
 use DateTime::Tiny;
-use version 0.77;
 
 
 
@@ -78,8 +77,7 @@ SKIP: {
 	my $dt = $date->DateTime;
 	isa_ok( $dt, 'DateTime' );
 	# DateTime::Locale version 1.00 changes "C" to "en-US-POSIX".
-	my $expected = version->parse($DateTime::Locale::VERSION) < version->parse("1.00")
-		? "C" : "en-US-POSIX";
+	my $expected = eval { DateTime::Locale->VERSION(1) } ? "en-US-POSIX" : "C";
 	is( $dt->locale->id,      $expected,  '->locale ok'   );
 	is( $dt->time_zone->name, 'floating', '->timezone ok' );
 
