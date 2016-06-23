@@ -1,6 +1,8 @@
 Changes for Perl extension DateTime-Tiny
 
 {{$NEXT}}
+
+1.06      2016-06-23 09:43:41-04:00 America/New_York
     - No changes from 1.05
 
 1.05      2016-06-20 11:05:35-04:00 America/New_York (TRIAL RELEASE)
