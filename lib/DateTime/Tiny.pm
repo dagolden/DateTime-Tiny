@@ -197,7 +197,8 @@ sub from_string {
 		require Carp;
 		Carp::croak("Did not provide a string to from_string");
 	}
-	unless ( $string =~ /^(\d\d\d\d)-(\d\d)-(\d\d)T(\d\d):(\d\d):(\d\d)$/ ) {
+    my $d = '[0-9]'; # backwards-compatible way of not matching anything but ASCII digits
+	unless ( $string =~ /^($d$d$d$d)-($d$d)-($d$d)T($d$d):($d$d):($d$d)$/ ) {
 		require Carp;
 		Carp::croak("Invalid time format (does not match ISO 8601)");
 	}
