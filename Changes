@@ -2,7 +2,6 @@ Changes for Perl extension DateTime-Tiny
 
 {{$NEXT}}
 
-1.07
     - Bugfix: only match ASCII digits in from_string() method.
 
 1.06      2016-06-23 09:43:41-04:00 America/New_York
