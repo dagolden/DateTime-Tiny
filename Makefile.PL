@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 
-use 5.006;
+use 5.008;
 
 use ExtUtils::MakeMaker 6.17;
 
@@ -13,7 +13,7 @@ my %WriteMakefileArgs = (
   },
   "DISTNAME" => "DateTime-Tiny",
   "LICENSE" => "perl",
-  "MIN_PERL_VERSION" => "5.006",
+  "MIN_PERL_VERSION" => "5.008",
   "NAME" => "DateTime::Tiny",
   "PREREQ_PM" => {
     "Carp" => 0,
@@ -24,7 +24,8 @@ my %WriteMakefileArgs = (
   "TEST_REQUIRES" => {
     "ExtUtils::MakeMaker" => 0,
     "File::Spec" => 0,
-    "Test::More" => 0
+    "Test::More" => 0,
+    "utf8" => 0
   },
   "VERSION" => "1.07",
   "test" => {
@@ -40,6 +41,7 @@ my %FallbackPrereqs = (
   "Test::More" => 0,
   "overload" => 0,
   "strict" => 0,
+  "utf8" => 0,
   "warnings" => 0
 );
 
