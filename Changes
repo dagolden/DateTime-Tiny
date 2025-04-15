@@ -2,6 +2,8 @@ Changes for Perl extension DateTime-Tiny
 
 {{$NEXT}}
 
+1.08      2025-04-15 07:14:23-04:00 America/New_York
+
     - Fix tests with DateTime::Locale 1.33 and later
 
 1.07      2018-04-22 11:06:08+02:00 Europe/Oslo
